@@ -1,0 +1,183 @@
+<head>
+    <title>CURRENT SCORES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#738adb">
+    <link rel="icon" sizes="192x192" href="countbot.png">
+    <style>
+      .time{
+      color:grey;
+      }
+    </style>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-88652762-2');
+    </script>
+</head>
+<body style="background-color:#738adb;">
+    <header class="center-align">
+        <a href="/"><img style="max-width:100%;width:100px;padding-top:20px;" src="countbot.png"></a>
+      <h1 class="white-text">CURRENT SCORES</h1>
+    </header>
+<div class="container">
+<div class="card z-depth-3">
+  <div class="card-content">
+    <ul class="collection">
+        <li class="collection-item avatar">
+          <img id="serverpic1" src="" class="circle">
+          <span id="servername1" class="title">Loading...</span>
+          <p id="count1"></p>
+          <p class="time" id="time1"></p>
+          <a href="#!" class="secondary-content"><i>#1</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic2" src="" class="circle">
+          <span id="servername2" class="title">Loading...</span>
+          <p id="count2"></p>
+          <p class="time" id="time2"></p>
+          <a href="#!" class="secondary-content"><i>#2</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic3" src="" class="circle">
+          <span id="servername3" class="title">Loading...</span>
+          <p id="count3"></p>
+          <p class="time" id="time3"></p>
+          <a href="#!" class="secondary-content"><i>#3</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic4" src="" class="circle">
+          <span id="servername4" class="title">Loading...</span>
+          <p id="count4"></p>
+          <p class="time" id="time4"></p>
+          <a href="#!" class="secondary-content"><i>#4</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic5" src="" class="circle">
+          <span id="servername5" class="title">Loading...</span>
+          <p id="count5"></p>
+          <p class="time" id="time5"></p>
+          <a href="#!" class="secondary-content"><i>#5</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic6" src="" class="circle">
+          <span id="servername6" class="title">Loading...</span>
+          <p id="count6"></p>
+          <p class="time" id="time6"></p>
+          <a href="#!" class="secondary-content"><i>#6</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic7" src="" class="circle">
+          <span id="servername7" class="title">Loading...</span>
+          <p id="count7"></p>
+          <p class="time" id="time7"></p>
+          <a href="#!" class="secondary-content"><i>#7</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic8" src="" class="circle">
+          <span id="servername8" class="title">Loading...</span>
+          <p id="count8"></p>
+          <p class="time" id="time8"></p>
+          <a href="#!" class="secondary-content"><i>#8</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic9" src="" class="circle">
+          <span id="servername9" class="title">Loading...</span>
+          <p id="count9"></p>
+          <p class="time" id="time9"></p>
+          <a href="#!" class="secondary-content"><i>#9</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img id="serverpic10" src="" class="circle">
+          <span id="servername10" class="title">Loading...</span>
+          <p id="count10"></p>
+          <p class="time" id="time10"></p>
+          <a href="#!" class="secondary-content"><i>#10</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+      <footer class="center-align">
+        <a style="color:white;padding-bottom:15px;text-decoration: underline;" href="https://discordapp.com/oauth2/authorize?client_id=510016054391734273&scope=bot&permissions=19520" target="_blank">Add the bot to your own discord server.</a>
+        <p style="color:white;">Made by Duck#0001</p>
+      </footer>
+      <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript">
+    function readtime(seconds) {
+      if (seconds >= 0) {
+        thetime = Math.floor(seconds) + " seconds ago.";
+      }
+      if (seconds >= 60) {
+        thetime = (seconds / 60).toFixed(1) + " minutes ago.";
+      }
+      if (seconds >= 3600) {
+        thetime = (seconds / 3600).toFixed(1) + " hours ago.";
+      }
+      return thetime;
+    }
+    function james() {
+        $.getJSON("current.json", function(data) {
+            console.log(data);
+            var currenttime = Math.round((new Date()).getTime() / 1000);
+            $('#servername1').html(data[0].servername);
+            $('#count1').html(data[0].count);
+            $('img#serverpic1').attr('src', data[0].serverpic);
+            $('#time1').html(readtime(currenttime - data[0].lastcount));
+
+            $('#servername2').html(data[1].servername);
+            $('#count2').html(data[1].count);
+            $('img#serverpic2').attr('src', data[1].serverpic);
+            $('#time2').html(readtime(currenttime - data[1].lastcount));
+
+            $('#servername3').html(data[2].servername);
+            $('#count3').html(data[2].count);
+            $('img#serverpic3').attr('src', data[2].serverpic);
+            $('#time3').html(readtime(currenttime - data[2].lastcount));
+
+            $('#servername4').html(data[3].servername);
+            $('#count4').html(data[3].count);
+            $('img#serverpic4').attr('src', data[3].serverpic);
+            $('#time4').html(readtime(currenttime - data[3].lastcount));
+
+            $('#servername5').html(data[4].servername);
+            $('#count5').html(data[4].count);
+            $('img#serverpic5').attr('src', data[4].serverpic);
+            $('#time5').html(readtime(currenttime - data[4].lastcount));
+
+            $('#servername6').html(data[5].servername);
+            $('#count6').html(data[5].count);
+            $('img#serverpic6').attr('src', data[5].serverpic);
+            $('#time6').html(readtime(currenttime - data[5].lastcount));
+
+            $('#servername7').html(data[6].servername);
+            $('#count7').html(data[6].count);
+            $('img#serverpic7').attr('src', data[6].serverpic);
+            $('#time7').html(readtime(currenttime - data[6].lastcount));
+
+            $('#servername8').html(data[7].servername);
+            $('#count8').html(data[7].count);
+            $('img#serverpic8').attr('src', data[7].serverpic);
+            $('#time8').html(readtime(currenttime - data[7].lastcount));
+
+            $('#servername9').html(data[8].servername);
+            $('#count9').html(data[8].count);
+            $('img#serverpic9').attr('src', data[8].serverpic);
+            $('#time9').html(readtime(currenttime - data[8].lastcount));
+
+            $('#servername10').html(data[9].servername);
+            $('#count10').html(data[9].count);
+            $('img#serverpic10').attr('src', data[9].serverpic);
+            $('#time10').html(readtime(currenttime - data[9].lastcount));
+
+            console.log("updated");
+        });
+        if (true){
+        setTimeout(james, 3000 );
+        }
+    }
+    james();
+    </script>
+</body>

@@ -1,0 +1,117 @@
+<head>
+    <meta charset="utf-8"/>
+    <title>CURRENT SCORES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#738adb">
+    <link rel="icon" sizes="192x192" href="countbot.png">
+    <style>
+      .time{
+      color:grey;
+      }
+      @keyframes flip{
+        from {transform:rotateX(0deg)}
+        to {transform:rotateX(360deg)}
+      }
+      .countint{
+        animation:flip .3s;
+      }
+      *{transition: all .3s ease-in-out;}
+    </style>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-88652762-2');
+    </script>
+</head>
+<body style="background-color:#738adb;">
+    <header class="center-align">
+        <a href="/"><img style="max-width:100%;width:100px;padding-top:20px;" src="countbot.png"></a>
+      <h1 class="white-text">CURRENT SCORES</h1>
+    </header>
+<div class="container">
+<div class="card z-depth-3">
+  <div class="card-content">
+    <ul class="collection">
+      </ul>
+    </div>
+  </div>
+</div>
+      <footer class="center-align">
+        <p><a onclick="prevpage()" id="prevbtn" class="waves-effect disabled deep-purple btn">Previous</a>
+        <a onclick="nextpage()" id="nextbtn" class="waves-effect deep-purple btn">Next</a></p>
+        <a style="color:white;padding-bottom:15px;text-decoration: underline;" href="https://discordapp.com/oauth2/authorize?client_id=510016054391734273&scope=bot&permissions=19520" target="_blank">Add the bot to your own discord server.</a>
+        <p style="color:white;"><a style="color:white;padding-bottom:15px;text-decoration: underline;" href="https://discord.gg/rMQDwMH" target="_blank">Join here</a> if you have any questions.</p>
+        <p style="color:white;">Made by Duck#0001</p>
+      </footer>
+      <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript">
+    for ( i = 0; i < 10; i++) {
+      var ranknum = i + 1;
+      $('.collection').append('<li class="collection-item avatar"><img id="serverpic'+i+'" src="" class="circle"><span id="servername'+i+'" class="title">Loading...</span><p id="count'+i+'"></p><p class="time" id="time'+i+'"></p><a href="#!" class="secondary-content"><i id="position'+i+'">#'+ranknum+'</i></a></li>');
+    }
+    function readtime(seconds) {
+      if (seconds >= 0) {
+        thetime = Math.floor(seconds) + " seconds ago.";
+      }
+      if (seconds >= 60) {
+        thetime = (seconds / 60).toFixed(1) + " minutes ago.";
+      }
+      if (seconds >= 3600) {
+        thetime = (seconds / 3600).toFixed(1) + " hours ago.";
+      }
+      return thetime;
+    }
+    var scores = 0;
+
+    function james() {
+        $.getJSON("cs?page="+scores, function(data) {
+            var currenttime = Math.round((new Date()).getTime() / 1000);
+            for ( i = 0; i < 10; i++) {
+            $('#servername'+i).html(data[i].servername);
+            $('#count'+i).removeClass("countint")
+            if (window['prev'+i] != data[i].count){
+              $('#count'+i).addClass("countint")
+              $('#count'+i).html(data[i].count);
+            }
+            window['prev'+i] = data[i].count;
+            $('img#serverpic'+i).attr('src', data[i].serverpic);
+            $('#position'+i).html("#"+(scores+(1+i)));
+            $('#time'+i).html(readtime(currenttime - data[i].lastcount));
+            if (scores >=10) {
+              $('#prevbtn').removeClass("disabled");
+              $('#nextbtn').removeClass("disabled");
+            }
+            else{
+              $('#nextbtn').removeClass("disabled");
+            }
+            }
+        });
+        counter = setTimeout(james, 3000 );
+    }
+    james();
+    function nextpage() {
+      scores = scores + 10;
+      $('#prevbtn').addClass("disabled");
+      $('#nextbtn').addClass("disabled");
+      clearTimeout(counter);
+      james();
+    }
+    function prevpage() {
+      if (scores >= 10) {
+        scores = scores - 10;
+        $('#prevbtn').addClass("disabled");
+        $('#nextbtn').addClass("disabled");
+        clearTimeout(counter);
+        james();
+      }
+      else{
+        $('#prevbtn').removeClass("disabled");
+        clearTimeout(counter);
+        james();
+      }
+    }
+    </script>
+</body>
