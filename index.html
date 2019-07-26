@@ -63,8 +63,9 @@
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript">
+    function commas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
       $.getJSON("stats.json", function(data) {
-        $('#servcount').html(data.servercount);
+        $('#servcount').html(commas(data.servercount));
     });
     var previous = "nothing";
     function james() {
