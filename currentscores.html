@@ -82,7 +82,12 @@
               $('#count'+i).html(data[i].count);
             }
             window['prev'+i] = data[i].count;
-            $('img#serverpic'+i).attr('src', data[i].serverpic);
+            if (data[i].serverpic != ''){
+              $('img#serverpic'+i).attr('src', data[i].serverpic);
+            }
+            else{
+              $('img#serverpic'+i).attr('src', "https://counting.duckgroup.xyz/countbot.png");
+            }
             $('#position'+i).html("#"+(scores+(1+i)));
             $('#time'+i).html(readtime(currenttime - data[i].lastcount));
             if (scores >=10) {
