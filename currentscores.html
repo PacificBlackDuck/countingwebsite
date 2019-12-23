@@ -23,6 +23,16 @@
         animation:flip .3s;
       }
       *{transition: all .3s ease-in-out;}
+      i{
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        float: right;
+        color:black;
+        font-size:14pt;
+        font-style:normal;
+        font-weight: 600;
+      }
     </style>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -55,7 +65,7 @@
     <script type="text/javascript">
     for ( i = 0; i < 10; i++) {
       var ranknum = i + 1;
-      $('.collection').append('<li class="collection-item avatar"><img id="serverpic'+i+'" src="" class="circle"><span id="servername'+i+'" class="title">Loading...</span><p id="count'+i+'"></p><p class="time" id="time'+i+'"></p><a href="#!" class="secondary-content"><i id="position'+i+'">#'+ranknum+'</i></a></li>');
+      $('.collection').append('<li class="collection-item avatar"><img id="serverpic'+i+'" src="" class="circle"><span id="servername'+i+'" class="title">Loading...</span><p id="count'+i+'"></p><p class="time" id="time'+i+'"></p><i id="position'+i+'">#'+ranknum+'</i></li>');
     }
     function readtime(seconds) {
       if (seconds >= 0) {
