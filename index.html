@@ -29,37 +29,20 @@
     <div style="width:100%" class="center-align">
         <a href="/"><img style="max-width:100%;width:100px;" src="countbotclear.png"></a>
         <h1 class="white-text">COUNTING</h1>
-        <h5 class="white-text">Compete with <span id="servcount"></span> other Discord servers to count as high as possible.</h5>
+        <h5 class="white-text">Compete with 20,000+ other Discord servers to count as high as possible.</h5>
         <div class="card z-depth-3">
           <div class="card-content">
-            <div class="row">
-              <div class="col s12 m6">
-              <h4 class="bold">HIGH SCORES</h4>
-              <a href="highscores" class="btn deep-purple waves-effect">GO THERE</a>
-            </div>
-            <div class="col s12 m6">
-              <h4 class="bold">CURRENT SCORES</h4>
-              <a href="currentscores" class="btn deep-purple waves-effect">GO THERE</a>
-            </div>
-            <a href="https://discord.gg/2saFDCd"><img style="margin-top:40px;max-width: 100%;" src="https://discordapp.com/api/guilds/580647218378309644/widget.png?style=banner2"></a>
-          </div>
+            <h4>Join the main counting server below for support and free saves.</h4>
+            <a href="https://discord.gg/2saFDCd"><img style="max-width: 100%;" src="https://discordapp.com/api/guilds/580647218378309644/widget.png?style=banner2"></a>
         </div>
       </div>
     
       <footer class="center-align">
           <a style="color:white;padding-bottom:15px;text-decoration: underline;" href="https://discordapp.com/oauth2/authorize?client_id=510016054391734273&scope=bot&permissions=19520" target="_blank">Add the bot to your own discord server.</a>
-          <p style="color:white;"><a style="color:white;padding-bottom:15px;text-decoration: underline;" href="https://discord.gg/rMQDwMH" target="_blank">Join here</a> if you have any questions.</p>
           <p style="color:white;">Made by Duck#0001</p>
           <a href="https://top.gg/bot/510016054391734273" ><p>
             <img src="https://top.gg/api/widget/upvotes/510016054391734273.svg" alt="counting" />
           </a>
       </footer>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript">
-    function commas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
-      $.getJSON("stats.json", function(data) {
-        $('#servcount').html(commas(data.servercount));
-    });
-    </script>
 </body>
