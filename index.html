@@ -1,48 +1,79 @@
 <head>
-    <title>COUNTING</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>counting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#5c4ecc">
     <link rel="icon" sizes="192x192" href="countbot.png">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <meta property="og:title" content="counting">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Compete with other servers to count as high as possible.">
     <meta property="og:url" content="https://counting.duckgroup.xyz/">
     <meta property="og:image" content="https://counting.duckgroup.xyz/countbot.png">
     <style>
-      .thecolour{background-image: linear-gradient(#776ad9, #5c4ecc);height: 100vh;}
-      .flex-container {display: flex;justify-content: center;align-items: center;}
-      .bold{font-weight:600;}
-      #numberstr{transition: all .3s ease-in-out;margin:0;}
-      *{transition: all .1s ease-in-out;}
+      body{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Open Sans', sans-serif;
+        color:white;
+        margin:0;
+        background-image: linear-gradient(#776ad9, #5c4ecc);
+        height: 100%;
+      }
+      .title{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .row{
+        display:flex;
+        justify-content: space-evenly;
+        text-align: center;
+      }
+      .button{
+        background-color: purple;
+        color:white;
+        padding:10px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin:5px;
+        transition:all 0.1s linear;
+        font-weight: 300;
+        text-align: center;
+      }
+      .button:hover{
+        filter:drop-shadow(5px 5px 0px black);
+        transform:translate(-2px, -2px);
+      }
+      .container{
+        padding: 10px;
+      }
+      h3{
+        text-align: center;
+        font-weight: 300;
+      }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88652762-2"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-88652762-2');
-    </script>
 </head>
-<body class="thecolour valign-wrapper container">
-    <div style="width:100%" class="center-align">
-        <a href="/"><img style="max-width:100%;width:100px;" src="countbotclear.png"></a>
-        <h1 class="white-text">COUNTING</h1>
-        <h5 class="white-text">Compete with 20,000+ other Discord servers to count as high as possible.</h5>
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <h4>Join the main counting server below for support and free saves.</h4>
-            <a href="https://discord.gg/2saFDCd"><img style="max-width: 100%;" src="https://discordapp.com/api/guilds/580647218378309644/widget.png?style=banner2"></a>
-        </div>
-      </div>
-    
-      <footer class="center-align">
-          <a style="color:white;padding-bottom:15px;text-decoration: underline;" href="https://discordapp.com/oauth2/authorize?client_id=510016054391734273&scope=bot&permissions=19520" target="_blank">Add the bot to your own discord server.</a>
-          <p style="color:white;">Made by Duck#0001</p>
-          <a href="https://top.gg/bot/510016054391734273" ><p>
-            <img src="https://top.gg/api/widget/upvotes/510016054391734273.svg" alt="counting" />
-          </a>
-      </footer>
+<body>
+  <div class="container">
+    <div class="title">
+      <a href="/"><img class="logo" style="max-width:100%;width:100px;" src="countbotclear.png"></a>
+      <h1>counting</h1>
     </div>
+    <div class="row">
+      <h3>Compete with 25,000+ other Discord servers to count as high as possible.</h3>
+    </div>
+    <div class="row">
+      <a class="button" href="https://discord.com/oauth2/authorize/?permissions=268454976&scope=bot&client_id=510016054391734273">Invite the bot</a>
+      <a class="button" href="https://discord.gg/2saFDCd">Join the counting server</a>
+    </div>
+    <div class="row">
+      <p>
+        <a href="https://top.gg/bot/510016054391734273"><img src="https://top.gg/api/widget/upvotes/510016054391734273.svg?noavatar=true" alt="counting"></a>
+        <a href="https://top.gg/bot/510016054391734273"><img src="https://top.gg/api/widget/status/510016054391734273.svg?noavatar=true" alt="counting"></a>
+        <a href="https://top.gg/bot/510016054391734273"><img src="https://top.gg/api/widget/servers/510016054391734273.svg?noavatar=true" alt="counting"></a>
+      </p>
+    </div>
+  </div>
 </body>
